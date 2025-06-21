@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+        content="Công ty TNHH Minh Thành Energy - Chuyên thi công hệ thống điện trung hạ thế, trạm biến áp 35kV, hệ thống chiếu sáng công cộng và giải pháp năng lượng mặt trời"
+        name="description" />
+    <meta
+        content="thi công điện, trạm biến áp, hệ thống chiếu sáng, năng lượng mặt trời, tủ điện, thiết bị điện Hậu Giang"
+        name="keywords" />
+    <title>Minh Thành Energy - Giải pháp điện chuyên nghiệp</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --primary-hover: #b9962c;
+            --primary-hover: #c9a227;
+            --secondary-color: #5e3a1c;
+            --secondary-hover: #4a2e15;
+            --secondary-hover: #543a1b;
+            --accent-color: #856d4d;
+            --accent-hover: #6b563e;
+            --accent-hover: #003d82;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.75rem;
+            font-weight: 600;
+            letter-spacing: 0.025em;
+            border-radius: 50rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-primary-custom:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            color: var(--dark-color);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-outline-light:hover {
+            color: var(--dark-color);
+        }
+
+        /* Navigation */
+        .navbar {
+            transition: var(--transition);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem !important;
+            font-weight: 500;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: 0;
+            left: 1rem;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover:after {
+            width: calc(100% - 2rem);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background: linear-gradient(135deg, rgba(101, 67, 33, 0.9) 0%, rgba(0, 86, 179, 0.8) 100%),
+                url('https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-section:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--light-color), transparent);
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section Titles */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .service-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background: white;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 86, 179, 0.1) 100%);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .icon-box {
+            transform: rotate(5deg) scale(1.1);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white !important;
+        }
+
+        /* Project Cards */
+        /* Thay thế phần CSS cũ của project card bằng đoạn này */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            height: 280px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(101, 67, 33, 0.9), transparent);
+            padding: 20px;
+            color: white;
+            transition: var(--transition);
+            transform: translateY(0);
+        }
+
+        .project-card:hover .project-overlay {
+            background: rgba(101, 67, 33, 0.95);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.8);
+        }
+
+        /* Thêm hiệu ứng đẹp hơn khi hover */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-overlay {
+            z-index: 2;
+        }
+
+        /* Contact Form */
+        .contact-info-box {
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            background: white;
+            height: 100%;
+            padding: 2.5rem !important;
+        }
+
+        .contact-info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
+        }
+
+        /* Partners Section */
+        .partners-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .partners-section .container{
+            overflow: hidden;
+        }
+
+        .partner-slider {
+            padding: 20px 0;
+        }
+
+        .partner-logo {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin: 0 10px;
+        }
+
+        .partner-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .partner-logo img {
+            max-width: 80%;
+            max-height: 80%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .partner-logo:hover img {
+            filter: grayscale(0);
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--primary-color) !important;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color), #543a1b);
+            color: white;
+            position: relative;
+        }
+
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .social-icon {
+            transition: var(--transition);
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            color: var(--dark-color) !important;
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-section {
+                min-height: auto;
+                padding: 100px 0;
+            }
+
+            .navbar {
+                padding: 0.75rem 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title:after {
+                width: 40px;
+                bottom: -12px;
+            }
+
+            .btn {
+                padding: 0.65rem 1.5rem;
+            }
+
+            .navbar-brand img {
+                height: 30px;
+            }
+            .navbar-brand h2 {
+                font-size: 1.25rem;
+            }
+            .navbar-brand small {
+                font-size: 0.65rem;
+            }
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            .hero-section .lead {
+                font-size: 1rem;
+            }
+
+            .partner-logo img {
+                filter: grayscale(0);
+                opacity: 1;
+            }
+        }
+
+        .bg-secondary-custom {
+            background-color: rgba(101, 67, 33, 0.9) !important;
+        }
+
+
+        .navbar.scrolled {
+            background-color: rgba(101, 67, 33, 0.95) !important;
+            padding: 0.5rem 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="./images/logo.png" alt="Minh Thành Energy Logo" height="50" class="me-2">
+                <div>
+                    <h2 class="mb-0">MINH THÀNH <span class="text-primary-custom">ENERGY</span></h2>
+                    <small class="text-white">Giải pháp điện chuyên nghiệp</small>
+                </div>
+            </a>
+            <button class="navbar-toggler" data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Dịch vụ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Dự án</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center" data-aos="fade" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">GIẢI PHÁP ĐIỆN CHUYÊN NGHIỆP <span
+                            class="text-primary-custom">CHO DOANH NGHIỆP</span></h1>
+                    <p class="lead mb-5">Công ty TNHH Minh Thành Energy với hơn 3 năm kinh nghiệm trong lĩnh vực thi
+                        công hệ thống điện, trạm biến áp và cung cấp giải pháp năng lượng tối ưu</p>
+                    <a class="btn btn-primary-custom btn-lg me-3 mb-3 mb-md-0" href="#contact">Liên hệ ngay</a>
+                    <a class="btn btn-outline-light btn-lg" href="#services">Dịch vụ của chúng tôi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <h2 class="section-title">GIỚI THIỆU CÔNG TY</h2>
+                    <p class="lead">Công ty TNHH Minh Thành Energy thành lập năm 2021</p>
+                    <p>Với hơn 03 năm hoạt động cùng đội ngũ kỹ sư, kỹ thuật viên giàu kinh nghiệm, chúng tôi tự hào là
+                        đơn vị chuyên nghiệp trong các lĩnh vực:</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary-custom me-2"></i> Thi công hệ thống
+                            điện Trung hạ thế và Trạm Biến áp đến 35kV</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary-custom me-2"></i> Hệ thống chiếu
+                            sáng công cộng</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary-custom me-2"></i> Sản xuất tủ bảng
+                            điện các loại</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-primary-custom me-2"></i> Giải pháp năng
+                            lượng mặt trời</li>
+                    </ul>
+                    <p class="mt-4">Với tiêu chí <strong>"Sự tin cậy của khách hàng là thành công của chúng
+                            tôi"</strong>, Minh Thành Energy cam kết mang đến những giải pháp tối ưu nhất cho mọi công
+                        trình.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="ratio ratio-16x9">
+                        <img alt="Minh Thành Energy Team" class="img-fluid rounded shadow"
+                            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=1472&amp;q=80" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section -->
+    <section class="py-5 bg-light" id="services">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title d-inline-block">LĨNH VỰC HOẠT ĐỘNG</h2>
+                <p class="lead">Chúng tôi cung cấp các dịch vụ chuyên nghiệp trong lĩnh vực điện và năng lượng</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block mb-4">
+                                <i class="fas fa-bolt fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Thi công hệ thống điện</h4>
+                            <p class="mb-0">Thi công lắp đặt công trình điện, đường dây trung áp và trạm biến áp đến cấp
+                                điện áp 35kV. Hệ thống điện ngầm khu dân cư, hệ thống chiếu sáng công cộng.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block mb-4">
+                                <i class="fas fa-solar-panel fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Năng lượng mặt trời</h4>
+                            <p class="mb-0">Thi công và lắp đặt hệ thống pin năng lượng mặt trời, máy phát điện năng
+                                lượng mặt trời, máy biến thế năng lượng mặt trời, thiết bị điện năng lượng mặt trời.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block mb-4">
+                                <i class="fas fa-boxes fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Sản xuất tủ điện</h4>
+                            <p class="mb-0">Sản xuất tủ điện các loại: động lực, điều khiển, tủ bù công suất. Lắp đặt,
+                                sửa chữa tủ điện công nghiệp, tủ bù công suất lớn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block mb-4">
+                                <i class="fas fa-lightbulb fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Tư vấn &amp; Giám sát</h4>
+                            <p class="mb-0">Tư vấn, giám sát thi công công trình đường dây và trạm biến áp đến cấp điện
+                                áp 35kV. Tư vấn, thiết kế thi công công trình đường dây và trạm biến áp.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block mb-4">
+                                <i class="fas fa-tools fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Bảo trì hệ thống</h4>
+                            <p class="mb-0">Bảo trì hệ thống điện: MBA, thiết bị trung hạ áp, tủ điện các loại. Dịch vụ
+                                chăm sóc và duy trì cảnh quang.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card card h-100">
+                        <div class="card-body text-center p-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block mb-4">
+                                <i class="fas fa-store fa-2x"></i>
+                            </div>
+                            <h4 class="mb-3">Thương mại thiết bị</h4>
+                            <p class="mb-0">Cung cấp thiết bị điện: Máy biến áp, dây cáp điện, vật tư thiết bị trung hạ
+                                thế. Thiết bị đóng cắt trung áp, hạ áp và thiết bị điện năng lượng mặt trời.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section class="py-5" id="projects">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title d-inline-block">CÔNG TRÌNH TIÊU BIỂU</h2>
+                <p class="lead">Những dự án nổi bật chúng tôi đã thực hiện</p>
+            </div>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img alt="Dự án Nhà máy tôm tẩm bột Minh Phú" 
+                            src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
+                        <div class="project-overlay">
+                            <h5>Nhà máy tôm tẩm bột Minh Phú</h5>
+                            <p class="mb-0 small">Thi công đường dây trung áp và TBA 22/0.4kV - 4x2.000kVA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img alt="Dự án Nhà máy bột gạo Mekong" 
+                            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
+                        <div class="project-overlay">
+                            <h5>Nhà máy bột gạo Mekong HG</h5>
+                            <p class="mb-0 small">Thi công đường dây trung áp và TBA 22/0.4kV - 560kVA + 1.000kVA + 1.600kVA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <img alt="Dự án CTY TNHH CBTS HẢI ĐĂNG" 
+                            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
+                        <div class="project-overlay">
+                            <h5>CTY TNHH CBTS HẢI ĐĂNG</h5>
+                            <p class="mb-0 small">Thiết kế, Xây dựng Đường dây trung áp và trạm biến áp 22/0.4kV - 750kVA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img alt="Dự án nhà máy lọc dầu Mái Dầm" 
+                            src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1413&q=80" />
+                        <div class="project-overlay">
+                            <h5>Nhà máy lọc dầu Mái Dầm</h5>
+                            <p class="mb-0 small">Xây dựng Đường dây trung áp và trạm biến áp 22/0.4kV - 250kVA +630kVA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img alt="Dự án KCN Sông Hậu" 
+                            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
+                        <div class="project-overlay">
+                            <h5>KCN Sông Hậu</h5>
+                            <p class="mb-0 small">Thiết kế, Xây dựng hạ tầng kỹ thuật khu trung tâm điều hành</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <img alt="Dự án CTY CP Westfood Hậu Giang" 
+                            src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
+                        <div class="project-overlay">
+                            <h5>CTY CP Westfood Hậu Giang</h5>
+                            <p class="mb-0 small">Xây dựng đường dây trung áp và TBA 22/0.4kV - (3.000+2.000+750)kVA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a class="btn btn-primary-custom btn-lg" href="#contact">YÊU CẦU TƯ VẤN DỰ ÁN</a>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container py-5">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title d-inline-block">LIÊN HỆ CHÚNG TÔI</h2>
+                <p class="lead">Hãy liên hệ để nhận tư vấn và báo giá tốt nhất</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="contact-info-box h-100">
+                        <h3 class="mb-4">THÔNG TIN LIÊN HỆ</h3>
+                        <div class="d-flex align-items-start mb-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block me-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Địa chỉ</h5>
+                                <p class="mb-0">693 Hùng Vương, Phường Ngã Bảy, Thành Phố Ngã Bảy, tỉnh Hậu Giang</p>
+                                <p class="mb-0">73A đường D5, KDC Hồng Loan, P. Hưng Thạnh, Q. Cái Răng, TP. Cần Thơ</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block me-3">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Điện thoại</h5>
+                                <p class="mb-0">0788568856 - 0944233114</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-4">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block me-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Email</h5>
+                                <p class="mb-0">minhthanhenergy@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start">
+                            <div
+                                class="icon-box bg-primary-custom bg-opacity-10 text-primary-custom rounded-circle p-3 d-inline-block me-3">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Người đại diện</h5>
+                                <p class="mb-0">Ông Văn Thành Sơn - Giám đốc</p>
+                                <p class="mb-0">Mã số doanh nghiệp: 6300344820</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="contact-info-box">
+                        <h3 class="mb-4">GỬI YÊU CẦU</h3>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="name">Họ và tên</label>
+                                    <input class="form-control" id="name" required="" type="text" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="company">Công ty</label>
+                                    <input class="form-control" id="company" type="text" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="phone">Điện thoại</label>
+                                    <input class="form-control" id="phone" required="" type="tel" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input class="form-control" id="email" required="" type="email" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="subject">Tiêu đề</label>
+                                    <input class="form-control" id="subject" required="" type="text" />
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="message">Nội dung</label>
+                                    <textarea class="form-control" id="message" required="" rows="5"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary-custom" type="submit">GỬI YÊU CẦU</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Map Section -->
+    <section class="py-0">
+        <div class="container-fluid px-0">
+            <iframe allowfullscreen="" height="450" loading="lazy"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.841317076403!2d105.8144743152606!3d9.82287689289938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNDknMjIuMyJOIDEwNcKwNDgnNTkuOSJF!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                style="border:0;" width="100%"></iframe>
+        </div>
+    </section>
+     <!-- Partners Section -->
+     <section class="partners-section" id="partners">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title d-inline-block">ĐỐI TÁC CỦA CHÚNG TÔI</h2>
+                <p class="lead">Những đối tác tin cậy cùng đồng hành với chúng tôi</p>
+            </div>
+            
+            <!-- Slider Container -->
+            <div class="partner-slider swiper-container" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- Partner 1 -->
+                    <div class="swiper-slide">
+                        <div class="partner-logo">
+                            <img src="./images/p1.png" alt="EVN">
+                        </div>
+                    </div>
+                    
+                    <!-- Partner 2 -->
+                    <div class="swiper-slide">
+                        <div class="partner-logo">
+                            <img src="./images/p2.png" alt="Siemens">
+                        </div>
+                    </div>
+                    
+                    <!-- Partner 3 -->
+                    <div class="swiper-slide">
+                        <div class="partner-logo">
+                            <img src="./images/p3.png" alt="ABB">
+                        </div>
+                    </div>
+                    
+                    <!-- Partner 4 -->
+                    <div class="swiper-slide">
+                        <div class="partner-logo">
+                            <img src="./images/p4.png" alt="Schneider">
+                        </div>
+                    </div>
+                    
+                    <!-- Partner 5 -->
+                    <div class="swiper-slide">
+                        <div class="partner-logo">
+                            <img src="./images/p5.png" alt="LG Solar">
+                        </div>
+                    </div>
+                    
+                    <!-- Partner 6 -->
+                    <div class="swiper-slide">
+                        <div class="partner-logo">
+                            <img src="./images/p6.png" alt="Canadian Solar">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="text-primary-custom mb-4">MINH THÀNH ENERGY</h3>
+                    <p>Với tiêu chí "Sự tin cậy của khách hàng là thành công của chúng tôi", Minh Thành Energy cam kết
+                        mang đến những giải pháp tối ưu nhất cho mọi công trình.</p>
+                    <div class="mt-4">
+                        <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-youtube"></i></a>
+                        <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="text-primary-custom mb-4">LIÊN KẾT NHANH</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a class="text-white text-decoration-none" href="#home">Trang chủ</a></li>
+                        <li class="mb-2"><a class="text-white text-decoration-none" href="#about">Giới thiệu</a></li>
+                        <li class="mb-2"><a class="text-white text-decoration-none" href="#services">Dịch vụ</a></li>
+                        <li class="mb-2"><a class="text-white text-decoration-none" href="#projects">Dự án</a></li>
+                        <li class="mb-2"><a class="text-white text-decoration-none" href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4 class="text-primary-custom mb-4">GIỜ LÀM VIỆC</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><strong>Thứ 2 - Thứ 6:</strong> 7:30 - 17:00</li>
+                        <li class="mb-2"><strong>Thứ 7:</strong> 7:30 - 12:00</li>
+                        <li class="mb-2"><strong>Chủ nhật:</strong> Nghỉ</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-primary-custom" />
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">© 2023 Minh Thành Energy. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Mã số doanh nghiệp: 6300344820</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize Partner Slider
+        const partnerSlider = new Swiper('.partner-slider', {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            // pagination: {
+            //     el: '.swiper-pagination',
+            //     clickable: true,
+            // },
+            breakpoints: {
+                576: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 4,
+                },
+                992: {
+                    slidesPerView: 5,
+                },
+                1200: {
+                    slidesPerView: 6,
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
